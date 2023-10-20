@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         githubApi = retrofit.create(GitHubService::class.java)
-        
+
     }
 
     //Metodo responsavel por buscar todos os repositorios do usuario fornecido
