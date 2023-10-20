@@ -3,6 +3,7 @@ package br.com.igorbag.githubsearch.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.igorbag.githubsearch.R
@@ -37,15 +38,21 @@ class RepositoryAdapter(private val repositories: List<Repository>) :
         //holder.favorito.setOnClickListener {
         //    btnShareLister(repositores[position])
         //}
+
+        holder.name.text = repositories[position].name
+        holder.share.setOnClickListener {
+            btnShareLister(repositories[position])
+        }
     }
 
     // Pega a quantidade de repositorios da lista
-    //@TODO 9 - realizar a contagem da lista
-    override fun getItemCount(): Int = 0
+    override fun getItemCount(): Int = repositories.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name : TextView
+        val share : ImageView
         init {
+            share = view.findViewById(R.id.iv_favorite)
             name = view.findViewById(R.id.tv_preco)
         }
     }
